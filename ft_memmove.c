@@ -6,19 +6,27 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 14:37:28 by qle-guen          #+#    #+#             */
-/*   Updated: 2015/12/24 06:04:17 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/02/11 17:34:09 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		*ft_memmove(void *dest, const void *src, size_t n)
+void		*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char	*buffer;
+	unsigned char		*tmp;
+	unsigned char		*tmp2;
 
-	buffer = ft_memalloc(n);
-	ft_memcpy(buffer, src, n);
-	ft_memcpy(dest, buffer, n);
-	ft_strdel(&buffer);
-	return (dest);
+	tmp = (unsigned char *)dst;
+	tmp2 = (unsigned char *)src;
+	if (dst > src)
+	{
+		tmp = tmp + n;
+		tmp2 = tmp2 + n;
+		while (n--)
+			*--tmp = *--tmp2;
+	}
+	else
+		ft_memcpy(dst, src, n);
+	return (dst);
 }

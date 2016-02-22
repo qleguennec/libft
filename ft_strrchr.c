@@ -6,12 +6,11 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 07:53:59 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/01/06 13:13:05 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/02/11 17:10:37 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdlib.h>
 
 char		*ft_strrchr(const char *s, int c)
 {
