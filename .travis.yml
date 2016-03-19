@@ -1,0 +1,10 @@
+os:
+    - linux
+    - osx
+
+language: c
+
+compiler: clang
+
+script:
+    - make test
