@@ -27,7 +27,7 @@ fi
 
 echo -e "$INFO"Tesing with moulitest$END
 echo "LIBFT_PATH = $PWD" > test/moulitest/config.ini
-cp include/libft.h ./
+cp $(make include -s)/libft.h ./
 cd test
 make -C moulitest libft_part2 > result.log 2>&1 || cat result.log
 rm ../libft.h

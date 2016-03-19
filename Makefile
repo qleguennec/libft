@@ -3,7 +3,7 @@ BINDIR		=	.
 SRCDIR		=	src
 BUILDDIR	=	build
 LIBDIR		=	.
-INCLUDE		=	include
+INCLUDE		=	includes
 NAME		=	libft.a
 TARGET		=	$(BINDIR)/$(NAME)
 
