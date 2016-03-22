@@ -1,8 +1,7 @@
 # Directories
-BINDIR		=	.
+BINDIR		?=	.
 SRCDIR		=	src
-BUILDDIR	=	build
-LIBDIR		=	.
+BUILDDIR	?=	build
 INCLUDE		=	includes
 NAME		=	libft.a
 TARGET		=	$(BINDIR)/$(NAME)
@@ -103,33 +102,18 @@ SRC			+=	ft_strfind_generic.c
 SRC			+=	ft_lstpush.c
 SRC			+=	ft_delete.c
 
-# Libraries
-LIBSRC		+=	
-
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
-LIBS		=	$(addprefix $(BUILDDIR)/, $(addsuffix .a,$(LIBSRC)))
 
 all: $(TARGET)
 
-$(BUILDDIR)/%.o: $(SRCDIR)/%.c $(BUILDDIR)
+$(BUILDDIR)/%.o: $(SRCDIR)/%.c
+	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo $(GREEN)+++ obj: $(YELLOW)$(@F)$(END)
-
-$(BUILDDIR)/%.a: $(LIBDIR)/% $(BUILDDIR) $(LIBDIR)/$(LIBSRC)
-	@make -s -C $<
-	@cp $</$(@F) $@
-	@cp $</include/$(@F:%.a=%.h) $(INCLUDE)
-	@echo $(GREEN)+++ lib: $(CYAN)$(@F)$(END)
 
 $(TARGET): $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
 	@echo $(GREEN)+++ bin: $(BLUE)$(NAME)$(END)
-
-$(BUILDDIR):
-	@mkdir $(BUILDDIR)
-
-$(LIBDIR)/$(LIBSRC):
-	@git clone http://github.com/qleguennec/$(@F).git $@
 
 .PHONY: clean
 clean:
@@ -137,7 +121,7 @@ clean:
 	@echo $(RED)--- lib: $(CYAN)$(LIBS:$(BUILDDIR)/%=%)$(END)
 	@rm -f $(OBJECTS)
 	@echo $(RED)--- obj: $(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END)
-	@rm -rf $(BUILDDIR)
+	@[ "$(ls -A $(BUILDDIR))" ] || rm -r $(BUILDDIR)
 
 .PHONY:	fclean
 fclean: clean
@@ -154,3 +138,6 @@ include:
 .PHONY: test
 test:
 	@test/test.sh $(ARGS)
+
+get-%:
+	@echo '$($*)'
