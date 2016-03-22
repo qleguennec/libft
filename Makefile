@@ -8,7 +8,6 @@ TARGET		=	$(BINDIR)/$(NAME)
 
 # Compiler options
 CC			=	clang
-LIBFLAGS	=	-L$(BUILDDIR) $(subst lib,-l,$(LIBSRC))
 CFLAGS		=	-I$(INCLUDE) -Wall -Wextra -Werror -g
 
 # Color output
@@ -118,11 +117,9 @@ $(TARGET): $(OBJECTS)
 
 .PHONY: clean
 clean:
-	@rm -f $(LIBS)
-	@echo $(RED)--- lib: $(CYAN)$(LIBS:$(BUILDDIR)/%=%)$(END)
 	@rm -f $(OBJECTS)
 	@echo $(RED)--- obj: $(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END)
-	@[ "$(ls -A $(BUILDDIR))" ] || rm -r $(BUILDDIR)
+	@[ "$(find $(BUILDDIR) -maxdepth 0 -empty)" ] || rm -r $(BUILDDIR)
 
 .PHONY:	fclean
 fclean: clean
