@@ -119,7 +119,7 @@ $(TARGET): $(OBJECTS)
 clean:
 	@rm -f $(OBJECTS)
 	@echo $(RED)--- obj: $(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END)
-	@[ "$(find $(BUILDDIR) -maxdepth 0 -empty)" ] || rm -r $(BUILDDIR)
+	@[ "$(find $(BUILDDIR) -maxdepth 0 -empty)" ] || rm -r $(BUILDDIR) 2> /dev/null; true
 
 .PHONY:	fclean
 fclean: clean
