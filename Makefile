@@ -131,10 +131,6 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
-.PHONY: include
-include:
-	@echo $(INCLUDE)
-
 .PHONY: test
 test:
 	@test/test.sh $(ARGS)
