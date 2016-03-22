@@ -112,6 +112,7 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@echo $(GREEN)+++ obj: $(YELLOW)$(@F)$(END)
 
 $(TARGET): $(OBJECTS)
+	@[ -d $(BINDIR) ] || mkdir $(BINDIR)
 	@ar rc $(NAME) $(OBJECTS)
 	@echo $(GREEN)+++ bin: $(BLUE)$(NAME)$(END)
 

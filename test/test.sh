@@ -16,7 +16,7 @@ INFO=$CYAN
 
 if [ ! -d "test/moulitest" ]; then
 	echo -ne "$INFO""Fetching moulitest "$END
-	git clone https://github.com/yyang42/moulitest.git test/moulitest --quiet
+	git clone https://github.com/yyang42/moulitest.git test/moulitest
 	if [ $? -ne 0 ]; then
 		echo -e "$NOK"NOK$END
 		exit 1
