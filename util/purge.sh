@@ -3,5 +3,5 @@
 RM=(.travis.yml .git util test)
 
 for DIR in ${RM[@]}; do
-	rm -rf $DIR
+	rm -rf $DIR 2> /dev/null
 done
