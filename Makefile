@@ -133,5 +133,9 @@ re: fclean all
 test:
 	@test/test.sh $(ARGS)
 
+.PHONY: purge
+purge:
+	@util/purge.sh
+
 get-%:
 	@echo '$($*)'
