@@ -1,14 +1,15 @@
 # Directories
 BINDIR		?=	.
-SRCDIR		=	src
+SRCDIR		?=	src
 BUILDDIR	?=	build
-INCLUDE		=	includes
+INCLUDE		+=	includes
 NAME		=	libft.a
 TARGET		=	$(BINDIR)/$(NAME)
 
 # Compiler options
 CC			=	clang
-CFLAGS		=	-I$(INCLUDE) -Wall -Wextra -Werror -g
+LIBFLAGS	=	-L$(LIBDIR) $(subst lib,-l,$(LIBSRC))
+CFLAGS		=	$(addprefix -I,$(INCLUDE)) -Wall -Wextra -Werror -g
 
 # Color output
 BLACK		=	"\033[0;30m"
@@ -106,34 +107,37 @@ OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 all: $(TARGET)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
-	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
+	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR); true
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo $(GREEN)+++ obj: $(YELLOW)$(@F)$(END)
+	@echo $(GREEN)+++ obj:'\t'$(END)$(BUILDDIR)/$(YELLOW)'\t'$(@F)$(END)
 
-$(TARGET): $(OBJECTS)
-	@[ -d $(BINDIR) ] || mkdir $(BINDIR)
-	@ar rc $@ $(OBJECTS)
-	@echo $(GREEN)+++ bin: $(BLUE)$(NAME)$(END)
+$(TARGET): $(LIBS) $(OBJECTS)
+	@ar rc $(@) $(OBJECTS)
+	@echo $(GREEN)+++ target:'\t'$(END)$(BINDIR)/'\t'$(BLUE)$(NAME)$(END)
 
-.PHONY: clean
+.PHONY: clean fclean re deps clean-deps re-deps test purge get-%
+
 clean:
-	@rm -f $(OBJECTS)
-	@echo $(RED)--- obj: $(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END)
+	@rm $(OBJECTS) 2> /dev/null	\
+		&& echo $(RED)--- obj:'\t'$(END)$(BUILDDIR)/'\t'$(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END); true
 	@[ "$(find $(BUILDDIR) -maxdepth 0 -empty)" ] || rm -r $(BUILDDIR) 2> /dev/null; true
 
-.PHONY:	fclean
 fclean: clean
-	@rm -f $(TARGET)
-	@echo $(RED)--- bin: $(BLUE)$(NAME)$(END)
+	@rm $(TARGET) > /dev/null \
+		&& echo $(RED)--- target:'\t'$(END)$(BINDIR)'\t'$(BLUE)$(NAME)$(END); true
 
-.PHONY: re
 re: fclean all
 
-.PHONY: test
+deps: $(addprefix $(DEPSDIR)/, $(LIBSRC))
+
+clean-deps:
+	@rm -rf $(DEPSDIR)
+
+re-deps: clean-deps deps
+
 test:
 	@test/test.sh $(ARGS)
 
-.PHONY: purge
 purge:
 	@util/purge.sh
 
