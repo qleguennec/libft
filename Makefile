@@ -136,6 +136,7 @@ re-deps: clean-deps deps
 
 test:
 	@test/test.sh $(ARGS)
+	@test/test-functions-used.sh
 
 purge:
 	@util/purge.sh
