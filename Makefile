@@ -102,6 +102,7 @@ SRC			+=	ft_strfind_generic.c
 SRC			+=	ft_lstpush.c
 SRC			+=	ft_delete.c
 SRC			+=	ft_lstbuild.c
+SRC			+=	ft_lstadd_end.c
 
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
