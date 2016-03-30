@@ -101,6 +101,7 @@ SRC			+=	ft_isspace.c
 SRC			+=	ft_strfind_generic.c
 SRC			+=	ft_lstpush.c
 SRC			+=	ft_delete.c
+SRC			+=	ft_lstbuild.c
 
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 

@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/01/06 13:20:03 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/03/30 16:36:36 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ void				ft_lstpush
 	(t_list **alst, void *content, size_t content_size);
 int					ft_lstsize(t_list *a);
 void				ft_delete(void *p, size_t size);
+void				*ft_lstbuild(t_list *l);
 
 #endif
