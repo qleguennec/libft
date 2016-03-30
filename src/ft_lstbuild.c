@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 16:30:42 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/03/30 16:38:23 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/03/30 16:44:10 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,25 @@
 
 void		*ft_lstbuild(t_list *l)
 {
-	int		len;
 	t_list	*head;
-	void	*ret;
+	t_vect	*ret;
+	void	*buf;
 
-	len = 0;
+	if (!(ret = ft_memalloc(sizeof(*ret))))
+		return (NULL);
 	head = l;
 	while (l)
 	{
-		len += l->content_size;
+		ret->size += l->content_size;
 		l = l->next;
 	}
-	if (!(ret = malloc(len)))
+	if (!(ret->content = malloc(ret->size)))
 		return (NULL);
 	l = head;
+	buf = ret->content;
 	while (l)
 	{
-		ret = ft_mempcpy(ret, l->content, l->content_size);
+		buf = ft_mempcpy(ret->content, l->content, ret->size);
 		l = l->next;
 	}
 	return (ret);
