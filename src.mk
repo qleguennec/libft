@@ -69,6 +69,7 @@ SRC += ft_strncat.c
 SRC += ft_memcmp.c
 SRC += ft_lstequ.c
 SRC += ft_putnbr_fd.c
+SRC += ft_lstsum.c
 SRC += ft_isupper.c
 SRC += ft_strstr.c
 SRC += ft_memoffset.c
