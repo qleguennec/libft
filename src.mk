@@ -77,3 +77,4 @@ SRC += ft_strrchr.c
 SRC += ft_pow.c
 SRC += ft_striter.c
 SRC += ft_lstfoldl.c
+SRC += ft_lstbuild.c
