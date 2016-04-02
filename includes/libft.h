@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/03/30 17:31:51 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/02 17:56:06 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-typedef struct		s_vect
-{
-	void			*content;
-	size_t			size;
-}					t_vect;
 
 void				ft_putchar(char s);
 void				ft_putstr(char const *s);
