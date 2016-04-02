@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 19:11:46 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/02 19:42:58 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/02 19:51:46 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_lstbuild(t_list *alst)
 	}
 	if (!(s = malloc(len)))
 		return (0);
-	copy(l, s);
+	copy(alst, s);
 	free(alst->content);
 	ft_lstdel(&alst->next, &ft_delete);
 	alst->content = s;
