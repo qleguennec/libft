@@ -6,11 +6,13 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 23:41:35 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/05 23:42:17 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/05 23:53:16 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_min(int a, int b)
+#include <libft.h>
+
+size_t	ft_min(size_t a, size_t b)
 {
 	if (a < b)
 		return (b);
