@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/03 00:35:37 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/05 21:37:05 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,13 @@ t_list				*ft_lstindex(int n);
 void				ft_lstdelone(t_list **alst, void (*del) (void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del) (void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f) (t_list *elem));
-void				ft_lstadd(t_list **alst, t_list *new);
+t_list				*ft_lstadd(t_list **alst, t_list *new);
+t_list				*ft_lstadd_end(t_list **alst, t_list *new);
 void				ft_lstpush
 	(t_list **alst, void *content, size_t content_size);
 int					ft_lstsize(t_list *a);
 void				ft_delete(void *p, size_t size);
 int					ft_lstbuild(t_list *alst);
-void				ft_lstadd_end(t_list **alst, t_list *new);
 size_t				ft_lstsum(t_list *l);
 
 #endif
