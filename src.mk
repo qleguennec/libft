@@ -74,6 +74,7 @@ SRC += ft_isupper.c
 SRC += ft_strstr.c
 SRC += ft_memoffset.c
 SRC += ft_putintlst.c
+SRC += ft_min.c
 SRC += ft_strrchr.c
 SRC += ft_pow.c
 SRC += ft_striter.c

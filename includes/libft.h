@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/05 21:37:05 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/05 23:42:45 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char				*ft_itoa(int n);
 int					ft_atoi(const char *s);
 int					ft_pow(int a, int n);
 int					ft_max(int a, int b);
+int					ft_min(int a, int b);
 int					ft_isupper(int c);
 int					ft_islower(int c);
 void				ft_putintlst(t_list *t);
