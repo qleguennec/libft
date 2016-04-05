@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 23:41:35 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/05 23:53:16 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/05 23:54:33 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_min(size_t a, size_t b)
 {
 	if (a < b)
-		return (b);
-	else
 		return (a);
+	else
+		return (b);
 }
