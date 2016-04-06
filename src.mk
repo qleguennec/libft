@@ -33,6 +33,7 @@ SRC += ft_strtrim.c
 SRC += ft_isprint.c
 SRC += ft_memccpy.c
 SRC += ft_lstnew.c
+SRC += ft_wstrlen.c
 SRC += ft_strmapi.c
 SRC += ft_lstadd.c
 SRC += ft_strdup.c

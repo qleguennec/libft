@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/05 23:52:46 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/06 11:28:39 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -31,6 +32,7 @@ void				ft_putchar_fd(char s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 size_t				ft_strlen(const char *s);
+size_t				ft_wstrlen(const wchar_t *s);
 void				ft_strclr(char *s);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strcpy(char *dest, const char *src);
