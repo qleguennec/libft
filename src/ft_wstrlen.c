@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 11:27:09 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/06 11:28:57 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/04/06 14:39:45 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ size_t		ft_wstrlen(const wchar_t *ws)
 	size_t	len;
 
 	len = 0;
-	while (*(ws++))
+	while (*ws)
+	{
+		ws++;
 		len++;
+	}
 	return (len);
 }
