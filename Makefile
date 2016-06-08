@@ -31,11 +31,11 @@ all: $(TARGET)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR); true
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	@echo $(GREEN)+++ obj:'\t'$(END)$(BUILDDIR)/$(YELLOW)'\t'$(@F)$(END)
 
 $(TARGET): $(LIBS) $(OBJECTS)
-	@ar rc $(@) $(OBJECTS)
+	ar rc $(@) $(OBJECTS)
 	@echo $(GREEN)+++ target:'\t'$(END)$(BINDIR)/'\t'$(BLUE)$(NAME)$(END)
 
 .PHONY: clean fclean re deps clean-deps re-deps test purge get-%
