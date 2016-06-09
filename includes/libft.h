@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/19 17:43:33 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:56:08 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,17 @@
 # include <string.h>
 # include <wchar.h>
 
+# define COMPARE(a, b)	(((a) > (b)) - ((a) < (b)))
+# define MIN(a,b)		((a <= b) : a ? b)
+# define MAX(a,b)		((a >= b) : a ? b)
+# define LEN(x)			(sizeof(x) / sizeof(x[0]))
+# define SIGN(x)		((x < 0) : 1 ? 0)
+# define ABS(x)			((x < 0) : - x ? x)
+
 typedef struct		s_list
 {
-	void			*content;
-	size_t			content_size;
+	void			*data;
+	size_t			size;
 	struct s_list	*next;
 }					t_list;
 

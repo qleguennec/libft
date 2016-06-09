@@ -6,13 +6,13 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 09:26:40 by qle-guen          #+#    #+#             */
-/*   Updated: 2015/12/29 09:31:23 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:56:00 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		ft_lstpush(t_list **alst, void *content, size_t content_size)
+void		ft_lstpush(t_list **alst, void *data, size_t size)
 {
 	t_list		*l;
 
@@ -20,10 +20,10 @@ void		ft_lstpush(t_list **alst, void *content, size_t content_size)
 	if (l)
 	{
 		if (l->next)
-			ft_lstpush(&l->next, content, content_size);
+			ft_lstpush(&l->next, data, size);
 		else
-			l->next = ft_lstnew(content, content_size);
+			l->next = ft_lstnew(data, size);
 	}
 	else
-		*alst = ft_lstnew(content, content_size);
+		*alst = ft_lstnew(data, size);
 }

@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/02 19:11:46 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/20 14:12:01 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:57:12 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	copy(t_list *l, void **s)
 {
 	while (l)
 	{
-		*s -= l->content_size;
-		ft_memcpy(*s, l->content, l->content_size);
+		*s -= l->size;
+		ft_memcpy(*s, l->data, l->size);
 		l = l->next;
 	}
 }
@@ -35,16 +35,16 @@ int			ft_lstrevbuild(t_list *alst)
 	l = alst;
 	while (l)
 	{
-		len += l->content_size;
+		len += l->size;
 		l = l->next;
 	}
 	if (!(s = malloc(len)))
 		return (0);
 	s += len;
 	copy(alst, &s);
-	free(alst->content);
+	free(alst->data);
 	ft_lstdel(&alst->next, &ft_delete);
-	alst->content = s;
-	alst->content_size = len;
+	alst->data = s;
+	alst->size = len;
 	return (1);
 }

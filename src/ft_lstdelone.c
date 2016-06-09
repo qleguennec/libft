@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 10:17:06 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/01/06 11:44:14 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:54:20 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void		ft_lstdelone(t_list **alst, void (*del) (void *, size_t))
 {
-	del((*alst)->content, (*alst)->content_size);
+	del((*alst)->data, (*alst)->size);
 	ft_memdel((void**)alst);
 }

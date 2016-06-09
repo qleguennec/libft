@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 00:33:58 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/03 00:36:02 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:57:26 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t			ft_lstsum(t_list *l)
 	ret = 0;
 	while (l)
 	{
-		ret += l->content_size;
+		ret += l->size;
 		l = l->next;
 	}
 	return (ret);
