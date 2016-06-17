@@ -3,8 +3,7 @@ BINDIR		?=	.
 SRCDIR		?=	src
 BUILDDIR	?=	build
 INCLUDE		+=	includes
-NAME		=	libft.a
-TARGET		=	$(BINDIR)/$(NAME)
+NAME		=	$(BINDIR)/libft.a
 
 # Compiler options
 CC			=	clang
@@ -27,14 +26,14 @@ include src.mk
 
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
-all: $(TARGET)
+all: $(NAME)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR); true
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo $(GREEN)+++ obj:'\t'$(END)$(BUILDDIR)/$(YELLOW)'\t'$(@F)$(END)
 
-$(TARGET): $(LIBS) $(OBJECTS)
+$(NAME): $(LIBS) $(OBJECTS)
 	ar rc $(@) $(OBJECTS)
 	@echo $(GREEN)+++ target:'\t'$(END)$(BINDIR)/'\t'$(BLUE)$(NAME)$(END)
 
@@ -45,7 +44,7 @@ clean:
 	&& echo $(RED)--- obj:'\t'$(END)$(BUILDDIR)/'\t'$(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END); true
 
 fclean: clean
-	@rm $(TARGET) > /dev/null \
+	@rm $(NAME) > /dev/null \
 	&& echo $(RED)--- target:'\t'$(END)$(BINDIR)'\t'$(BLUE)$(NAME)$(END); true
 
 re: fclean all
