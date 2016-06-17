@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memoffset.c                                     :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:02:41 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/01/06 11:53:09 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/06/17 11:05:17 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/06/17 11:08:50 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 
-void		ft_memoffset(const void *s, unsigned int offset)
+void		*ft_memdup(void *p, size_t n)
 {
-	unsigned int	i;
+	void	*ret;
 
-	i = 0;
-	while (i < offset)
-	{
-		i++;
-		s++;
-	}
+	return ((ret = malloc(n)) ? ft_memcpy(ret, p, n) : NULL);
 }
