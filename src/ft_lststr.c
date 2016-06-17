@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdup.c                                        :+:      :+:    :+:   */
+/*   ft_lststr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/17 11:05:17 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/17 11:21:43 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/06/16 19:06:39 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/06/16 19:08:33 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdlib.h>
 
-void		*ft_memdup(void *p, size_t n)
+t_list			*ft_lststr(char *s)
 {
-	void	*ret;
-
-	return ((ret = malloc(n)) ? ft_memcpy(ret, p, n) : NULL);
+	return (ft_lstnew(s, ft_strlen(s)));
 }
