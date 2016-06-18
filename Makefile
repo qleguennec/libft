@@ -3,7 +3,8 @@ BINDIR		?=	.
 SRCDIR		?=	src
 BUILDDIR	?=	build
 INCLUDE		+=	includes
-NAME		=	$(BINDIR)/libft.a
+NAME		=	libft.a
+TARGET		=	$(BINDIR)/$(NAME)
 
 # Compiler options
 CC			=	clang
@@ -26,14 +27,14 @@ include src.mk
 
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
-all: $(NAME)
+all: $(TARGET)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR); true
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo $(GREEN)+++ obj:'\t'$(END)$(BUILDDIR)/$(YELLOW)'\t'$(@F)$(END)
 
-$(NAME): $(LIBS) $(OBJECTS)
+$(TARGET): $(LIBS) $(OBJECTS)
 	ar rc $(@) $(OBJECTS)
 	@echo $(GREEN)+++ target:'\t'$(END)$(BINDIR)/'\t'$(BLUE)$(NAME)$(END)
 
@@ -44,7 +45,7 @@ clean:
 	&& echo $(RED)--- obj:'\t'$(END)$(BUILDDIR)/'\t'$(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END); true
 
 fclean: clean
-	@rm $(NAME) > /dev/null \
+	@rm $(TARGET) > /dev/null \
 	&& echo $(RED)--- target:'\t'$(END)$(BINDIR)'\t'$(BLUE)$(NAME)$(END); true
 
 re: fclean all
@@ -62,6 +63,7 @@ test:
 
 purge:
 	@util/purge.sh
+	@rm -rf util > /dev/null 2>&1 || true
 
 get-%:
 	@echo '$($*)'
