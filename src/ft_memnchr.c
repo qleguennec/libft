@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memnchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 14:45:27 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/21 13:36:36 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/21 16:37:49 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void		*ft_memchr(const void *s, int c, size_t n)
+void		*ft_memnchr(const void *s, int c, size_t n)
 {
 	unsigned char	*p;
 	size_t			i;
