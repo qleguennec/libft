@@ -58,6 +58,7 @@ SRC += ft_putstr_fd.c
 SRC += ft_isspace.c
 SRC += ft_strtrim.c
 SRC += ft_memchr.c
+SRC += ft_bytecmp.c
 SRC += ft_lstdel.c
 SRC += ft_strfind.c
 SRC += ft_wstrlen.c

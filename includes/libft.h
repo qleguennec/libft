@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/18 00:57:15 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/21 13:22:15 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void				*ft_mempcpy(void *dest, const void *src, size_t len);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					ft_bytecmp(const void *p, unsigned char c, size_t n);
 void				*ft_memdup(void *p, size_t n);
 int					ft_tolower(int i);
 int					ft_toupper(int i);
