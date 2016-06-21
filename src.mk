@@ -42,6 +42,7 @@ SRC += ft_strend.c
 SRC += ft_delete.c
 SRC += ft_strsub.c
 SRC += ft_strstr.c
+SRC += ft_memnchr.c
 SRC += ft_lstsum.c
 SRC += ft_islower.c
 SRC += ft_tolower.c
