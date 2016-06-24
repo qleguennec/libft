@@ -11,6 +11,7 @@ SRC += ft_lstequ.c
 SRC += ft_lstbuild.c
 SRC += ft_toupper.c
 SRC += ft_memcmp.c
+SRC += ft_find.c
 SRC += ft_isascii.c
 SRC += ft_strclr.c
 SRC += ft_lstpush.c

@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/21 13:36:52 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/24 23:46:48 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(char const *s1, char const *s2);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
+void				*ft_find(char *str, void *fst, void *lst, size_t size);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strend(char const *s1);
