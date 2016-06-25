@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/24 23:46:48 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/25 09:01:21 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ size_t				ft_max(size_t a, size_t b);
 size_t				ft_min(size_t a, size_t b);
 int					ft_isupper(int c);
 int					ft_islower(int c);
+t_list				*ft_lstend(t_list *l);
 void				ft_putintlst(t_list *t);
 void				*ft_lstfoldl
 	(void *(*f) (void *, void *), void *b, t_list *l);
