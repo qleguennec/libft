@@ -73,6 +73,7 @@ SRC += ft_strtrim.c
 SRC += ft_tolower.c
 SRC += ft_toupper.c
 SRC += ft_wstrlen.c
+
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
 all: $(NAME)
@@ -82,9 +83,8 @@ $(BUILDDIR)/%.o: %.c
 	@echo -n $(YELLOW)$(NAME)$(END)'\t'
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(LIBS) $(OBJECTS)
-	@echo -n $(CYAN)$(YELLOW)$(END)'\t'
-	ar rc $(@) $(OBJECTS)
+$(NAME): $(OBJECTS)
+	@ar rc $(@) $(OBJECTS)
 
 .PHONY: clean fclean re
 
