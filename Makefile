@@ -1,14 +1,10 @@
 # Directories
 BINDIR		?=	.
-SRCDIR		?=	src
 BUILDDIR	?=	build
-INCLUDE		+=	includes
-NAME		=	libft.a
-TARGET		=	$(BINDIR)/$(NAME)
+NAME		=	$(BINDIR)/libft.a
 
 # Compiler options
 CC			=	clang
-LIBFLAGS	=	-L$(LIBDIR) $(subst lib,-l,$(LIBSRC))
 CFLAGS		=	$(addprefix -I,$(INCLUDE)) -Wall -Wextra -Werror -g
 
 # Color output
@@ -22,48 +18,80 @@ CYAN		=	"\033[0;36m"
 WHITE		=	"\033[0;37m"
 END			=	"\033[0m"
 
-# Source files
-include src.mk
-
+SRC += ft_atoi.c
+SRC += ft_bytecmp.c
+SRC += ft_bzero.c
+SRC += ft_find.c
+SRC += ft_isalnum.c
+SRC += ft_isalpha.c
+SRC += ft_isascii.c
+SRC += ft_isdigit.c
+SRC += ft_islower.c
+SRC += ft_isprint.c
+SRC += ft_isspace.c
+SRC += ft_isupper.c
+SRC += ft_itoa.c
+SRC += ft_memalloc.c
+SRC += ft_memccpy.c
+SRC += ft_memchr.c
+SRC += ft_memcmp.c
+SRC += ft_memcpy.c
+SRC += ft_memdel.c
+SRC += ft_memdup.c
+SRC += ft_memmove.c
+SRC += ft_memnchr.c
+SRC += ft_mempcpy.c
+SRC += ft_memset.c
+SRC += ft_pow.c
+SRC += ft_putchar.c
+SRC += ft_putchar_fd.c
+SRC += ft_putendl.c
+SRC += ft_putendl_fd.c
+SRC += ft_putnbr.c
+SRC += ft_putnbr_fd.c
+SRC += ft_putstr.c
+SRC += ft_putstr_fd.c
+SRC += ft_strcat.c
+SRC += ft_strchr.c
+SRC += ft_strcmp.c
+SRC += ft_strcpy.c
+SRC += ft_strdup.c
+SRC += ft_strend.c
+SRC += ft_strequ.c
+SRC += ft_strfind.c
+SRC += ft_strlcat.c
+SRC += ft_strlen.c
+SRC += ft_strncat.c
+SRC += ft_strncmp.c
+SRC += ft_strncpy.c
+SRC += ft_strnew.c
+SRC += ft_strnstr.c
+SRC += ft_strrchr.c
+SRC += ft_strrev.c
+SRC += ft_strstr.c
+SRC += ft_strtrim.c
+SRC += ft_tolower.c
+SRC += ft_toupper.c
+SRC += ft_wstrlen.c
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
-all: $(TARGET)
+all: $(NAME)
 
-$(BUILDDIR)/%.o: $(SRCDIR)/%.c
-	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR); true
+$(BUILDDIR)/%.o: %.c
+	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
+	@echo -n $(YELLOW)$(NAME)$(END)'\t'
 	$(CC) $(CFLAGS) -c $< -o $@
-	@echo $(GREEN)+++ obj:'\t'$(END)$(BUILDDIR)/$(YELLOW)'\t'$(@F)$(END)
 
-$(TARGET): $(LIBS) $(OBJECTS)
+$(NAME): $(LIBS) $(OBJECTS)
+	@echo -n $(CYAN)$(YELLOW)$(END)'\t'
 	ar rc $(@) $(OBJECTS)
-	@echo $(GREEN)+++ target:'\t'$(END)$(BINDIR)/'\t'$(BLUE)$(NAME)$(END)
 
-.PHONY: clean fclean re deps clean-deps re-deps test purge get-%
+.PHONY: clean fclean re
 
 clean:
-	@rm $(OBJECTS) 2> /dev/null	\
-	&& echo $(RED)--- obj:'\t'$(END)$(BUILDDIR)/'\t'$(YELLOW)$(OBJECTS:$(BUILDDIR)/%=%)$(END); true
+	@rm -rf build/
 
 fclean: clean
-	@rm $(TARGET) > /dev/null \
-	&& echo $(RED)--- target:'\t'$(END)$(BINDIR)'\t'$(BLUE)$(NAME)$(END); true
+	@rm -rf $(TARGET)
 
 re: fclean all
-
-deps: $(addprefix $(DEPSDIR)/, $(LIBSRC))
-
-clean-deps:
-	@rm -rf $(DEPSDIR)
-
-re-deps: clean-deps deps
-
-test:
-	@test/test.sh $(ARGS)
-	@test/test-functions-used.sh
-
-purge:
-	@util/purge.sh
-	@rm -rf util > /dev/null 2>&1 || true
-
-get-%:
-	@echo '$($*)'
