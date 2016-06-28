@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 13:26:34 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/04/05 23:51:23 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/28 15:12:06 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int			ft_strequ(char const *s1, char const *s2)
 {
-	return (ft_strnequ(
-		s1,
-		s2,
-		ft_max(ft_strlen(s1), ft_strlen(s2))));
+	size_t	size1;
+	size_t	size2;
+
+	size1 = ft_strlen(s1);
+	size2 = ft_strlen(s2);
+	return (size1 != size2 ? 0 : !ft_memcmp(s1, s2, size1));
 }
