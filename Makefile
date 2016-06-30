@@ -1,4 +1,5 @@
 # Directories
+PROJECT		=	libft
 BINDIR		?=	.
 BUILDDIR	?=	build
 NAME		=	$(BINDIR)/libft.a
@@ -80,18 +81,22 @@ all: $(NAME)
 
 $(BUILDDIR)/%.o: %.c
 	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
-	@echo -n $(YELLOW)$(NAME)$(END)'\t'
+	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
+	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
 	@ar rc $(@) $(OBJECTS)
+	@echo OK
 
 .PHONY: clean fclean re
 
 clean:
-	@rm -rf build/
+	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
+	rm -rf build/
 
 fclean: clean
-	@rm -rf $(TARGET)
+	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
+	rm -rf $(NAME)
 
 re: fclean all
