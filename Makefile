@@ -81,22 +81,22 @@ all: $(NAME)
 
 $(BUILDDIR)/%.o: %.c
 	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
-	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
+	@printf $(YELLOW)$(PROJECT)$(END)'\t'
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
+	@printf $(YELLOW)$(PROJECT)$(END)'\t'
 	@ar rc $(@) $(OBJECTS)
 	@echo OK
 
 .PHONY: clean fclean re
 
 clean:
-	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
+	@printf $(YELLOW)$(PROJECT)$(END)'\t'
 	rm -rf build/
 
 fclean: clean
-	@echo -n $(YELLOW)$(PROJECT)$(END)'\t'
+	@printf $(YELLOW)$(PROJECT)$(END)'\t'
 	rm -rf $(NAME)
 
 re: fclean all
