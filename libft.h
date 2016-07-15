@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/28 17:05:15 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/07/15 18:56:48 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define LEN(x)			(sizeof(x) / sizeof(x[0]))
 # define SIGN(x)		((x < 0) ? 1 : 0)
 # define ABS(x)			((x < 0) ? - x : x)
+
+# define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
 
 char			*ft_itoa(int n);
 char			*ft_strcat(char *dest, const char *src);
@@ -57,25 +59,17 @@ size_t			ft_strlcat(char *dest, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
 size_t			ft_wstrlen(const wchar_t *s);
 unsigned long	ft_pow(unsigned long a, unsigned long n);
-void			ft_bzero(void *s, size_t n);
 void			*ft_find(char *str, void *fst, void *lst, size_t size);
 void			*ft_memalloc(size_t size);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
-void			ft_memdel(void **ap);
 void			*ft_memdup(void *p, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memnchr(const void *s, int c, size_t n);
 void			*ft_mempcpy(void *dest, const void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t n);
-void			ft_putchar(char s);
-void			ft_putchar_fd(char s, int fd);
-void			ft_putendl(char const *s);
-void			ft_putendl_fd(char const *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
-void			ft_putnbr(int n);
-void			ft_putstr(char const *s);
-void			ft_putstr_fd(char const *s, int fd);
+void			ft_bzero(void *s, size_t n);
+void			ft_memdel(void **ap);
 
 #endif
