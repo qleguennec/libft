@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 14:07:53 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/28 15:06:05 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/07/05 19:56:36 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static int		ft_strfind_generic
 	return (f(*s) ? 0 : 1 + ft_strfind_generic(s + 1, f));
 }
 
-static int	nospace
+static int		nospace
 	(int c)
 {
 	return (!ft_isspace(c));
 }
 
-char		*ft_strtrim
+char			*ft_strtrim
 	(char const *s)
 {
-	char	*result;
-	char	*buffer;
-	char	*rev;
+	char		*result;
+	char		*buffer;
+	char		*rev;
 
 	result = (char *)s;
 	result += ft_strfind_generic(s, &nospace);
