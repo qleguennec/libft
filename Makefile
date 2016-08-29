@@ -62,7 +62,6 @@ SRC += ft_strnstr.c
 SRC += ft_strrchr.c
 SRC += ft_strrev.c
 SRC += ft_strstr.c
-SRC += ft_strtrim.c
 SRC += ft_tolower.c
 SRC += ft_toupper.c
 SRC += ft_wstrlen.c
