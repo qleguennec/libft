@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/09/02 14:07:47 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/07 18:09:07 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define ABS(x)			((x < 0) ? - x : x)
 
 # define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
+
+typedef int		(*t_cmp_f) (void *, void *);
 
 char			*ft_itoa(int n);
 char			*ft_strcat(char *dest, const char *src);
@@ -72,5 +74,6 @@ void			*ft_mempcpy(void *dest, const void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			ft_memdel(void **ap);
+void			ft_qsort(void **t, size_t n, t_cmp_f cmp, int rev);
 
 #endif

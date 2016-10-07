@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_null.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 10:22:22 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/10/07 20:02:30 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/10/07 17:57:05 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/10/07 17:57:41 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../malloc.h"
+#include <stdlib.h>
 
-void		*ft_memalloc(size_t size)
+void		*ft_null(size_t size)
 {
-	void	*p;
-
-	MALLOC(p, size);
-	ft_bzero(p, size);
-	return (p);
+	(void)size;
+	return (NULL);
 }

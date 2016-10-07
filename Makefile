@@ -32,6 +32,7 @@ SRC += ft_isprint.c
 SRC += ft_isspace.c
 SRC += ft_isupper.c
 SRC += ft_itoa.c
+SRC += ft_malloc_err.c
 SRC += ft_memalloc.c
 SRC += ft_memccpy.c
 SRC += ft_memchr.c
@@ -43,7 +44,9 @@ SRC += ft_memmove.c
 SRC += ft_memnchr.c
 SRC += ft_mempcpy.c
 SRC += ft_memset.c
+SRC += ft_null.c
 SRC += ft_pow.c
+SRC += ft_qsort.c
 SRC += ft_strcat.c
 SRC += ft_strchr.c
 SRC += ft_strcmp.c
@@ -65,6 +68,7 @@ SRC += ft_strstr.c
 SRC += ft_tolower.c
 SRC += ft_toupper.c
 SRC += ft_wstrlen.c
+
 
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 

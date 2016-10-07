@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_qsort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 10:22:22 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/10/07 20:02:30 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/10/07 17:43:06 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/10/07 17:50:55 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../malloc.h"
 
-void		*ft_memalloc(size_t size)
+void				ft_qsort
+	(void **t, size_t n, t_cmp_f cmp, int rev)
 {
+	int		i;
+	int		j;
 	void	*p;
+	void	*tmp;
 
-	MALLOC(p, size);
-	ft_bzero(p, size);
-	return (p);
+	if (n < 2)
+		return ;
+	p = t[n / 2];
+	i = 0;
+	j = n - 1;
+	while (42)
+	{
+		while ((rev ? cmp(t[i], p) : cmp(p, t[i])) > 0)
+			i++;
+		while ((rev ? cmp(p, t[j]) : cmp(t[j], p)) > 0)
+			j--;
+		if (i >= j)
+			break ;
+		tmp = t[i];
+		t[i] = t[j];
+		t[j--] = tmp;
+		i++;
+	}
+	ft_qsort(t, i, cmp, rev);
+	ft_qsort(t + i, n - i, cmp, rev);
 }
