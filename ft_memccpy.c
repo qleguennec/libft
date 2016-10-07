@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:52:09 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/02/11 19:01:22 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/07 21:33:59 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 void		*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	void	*p;
+	unsigned char	*s;
+	unsigned char	*d;
 
-	p = ft_memchr(src, c, n);
-	if (p)
-		return (ft_mempcpy(dest, src, p - src + 1));
-	ft_memcpy(dest, src, n);
-	return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (n && *s != (unsigned char)c)
+	{
+		*d++ = *s++;
+		n--;
+	}
+	*d++ = (unsigned char)c;
+	return (n ? d : NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 11:12:21 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/01/06 11:57:30 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/07 22:03:59 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,13 @@
 
 char		*ft_strcpy(char *dest, const char *src)
 {
-	return (ft_strncpy(dest, src, ft_strlen(src) + 1));
+	unsigned char	*s;
+	unsigned char	*d;
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (*s)
+		*d++ = *s++;
+	*d = '\0';
+	return (dest);
 }

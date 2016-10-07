@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 18:39:35 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/10/07 21:04:00 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/07 21:14:42 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ static void	put_size(size_t size)
 	size_t	pow;
 	char	c;
 
+	if (!size)
+	{
+		write(2, "0", 1);
+		return ;
+	}
 	pow = 1;
 	while (pow < size)
 		pow *= 10;
@@ -31,7 +36,7 @@ static void	put_size(size_t size)
 		size -= pow * c;
 		pow /= 10;
 		c += '0';
-		write(1, &c, 1);
+		write(2, &c, 1);
 	}
 }
 
