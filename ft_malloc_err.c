@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 18:39:35 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/10/07 21:01:43 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/07 21:04:00 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ static void	put_size(size_t size)
 void		ft_malloc_err
 	(size_t size, const char *func, const char *file, int line)
 {
-	static const char	*malloc_err1 = "failed to allocate ";
-	static const char	*malloc_err2 = " bytes\n";
-	static const char	*malloc_err3 =
-		"failed to allocate n > UINT_MAX bytes\n";
+	static char	*malloc_err1 = "failed to allocate ";
+	static char	*malloc_err2 = " bytes\n";
+	static char	*malloc_err3 = "failed to allocate n > UINT_MAX bytes\n";
 
 	write(2, file, ft_strlen(file));
 	write(2, ", line ", ft_strlen(", line "));
