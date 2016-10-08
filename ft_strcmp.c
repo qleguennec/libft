@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 13:27:58 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/01/06 11:56:59 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/08 04:34:55 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int			ft_strcmp(char const *s1, char const *s2)
 {
-	return (ft_strncmp(
-		s1
-		, s2
-		, MAX(ft_strlen(s1), ft_strlen(s2))));
+	while (*s1 == *s2 && *s1)
+	{
+		s1++;
+		s2++;
+	}
+	return (*((unsigned char *)s1) - *((unsigned char *)s2));
 }
