@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 18:39:35 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/10/07 21:14:42 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/08 05:30:02 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		ft_malloc_err
 	write(2, func, ft_strlen(func));
 	write(2, ": ", 2);
 	if (size > UINT_MAX)
-		write(2, malloc_err3, ft_strlen(malloc_err1));
+		write(2, malloc_err3, ft_strlen(malloc_err3));
 	else
 	{
 		write(2, malloc_err1, ft_strlen(malloc_err1));
