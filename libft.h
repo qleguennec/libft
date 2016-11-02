@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/10/07 22:18:23 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/20 16:27:09 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define NEG(x)			((x < 0) ? 1 : 0)
 # define SIGN(x)		((x < 0) ? - 1 : 1)
 # define ABS(x)			((x < 0) ? - x : x)
+# define BZERO(t, x)	t x; ft_bzero(&x, sizeof(x))
 
 # define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
 

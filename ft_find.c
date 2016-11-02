@@ -6,11 +6,12 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/24 23:44:12 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/28 15:40:59 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/10/20 16:43:47 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void		*ft_find
 	(char *str, void *fst, void *lst, size_t size)
