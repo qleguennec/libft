@@ -88,7 +88,7 @@ $(NAME): $(OBJECTS)
 
 clean:
 	@printf $(YELLOW)$(PROJECT)$(END)'\t'
-	rm -rf build/
+	rm -rf $(OBJECTS)
 
 fclean: clean
 	@printf $(YELLOW)$(PROJECT)$(END)'\t'
