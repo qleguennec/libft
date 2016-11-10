@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/10 17:35:19 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/10 18:00:28 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ size_t				ft_strfind(const char *s, char c);
 size_t				ft_strlcat(char *dest, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
 size_t				ft_wstrlen(const wchar_t *s);
+t_list				*ft_lstpop(t_list **l);
 unsigned long		ft_pow(unsigned long a, unsigned long n);
 void				*ft_find(char *str, void *fst, void *lst, size_t size);
 void				*ft_memalloc(size_t size);
