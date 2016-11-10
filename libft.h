@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/10 19:26:39 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/10 23:44:54 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_list
 
 typedef int			(*t_cmp_f) (void *, void *);
 
+char				**ft_nsplit(char *s, size_t n, int (*f)(int));
 char				*ft_itoa(int n);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strchr(const char *s, int c);
@@ -81,6 +82,7 @@ void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memnchr(const void *s, int c, size_t n);
 void				*ft_mempcpy(void *dest, const void *src, size_t len);
 void				*ft_memset(void *s, int c, size_t n);
+void				ft_arr_free(void **a);
 void				ft_bzero(void *s, size_t n);
 void				ft_lstadd(t_list **l, void *mem, size_t size);
 void				ft_lstfree(t_list *l);
