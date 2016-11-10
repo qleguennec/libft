@@ -1,14 +1,11 @@
-# Directories
 PROJECT		=	libft
 BINDIR		?=	.
 BUILDDIR	?=	build
 NAME		=	$(BINDIR)/libft.a
 
-# Compiler options
 CC			=	clang
 CFLAGS		=	-Wall -Wextra -Werror -g
 
-# Color output
 BLACK		=	"\033[0;30m"
 RED			=	"\033[0;31m"
 GREEN		=	"\033[0;32m"
