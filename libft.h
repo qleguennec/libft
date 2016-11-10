@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/10 18:00:28 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/10 19:26:39 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void				*ft_mempcpy(void *dest, const void *src, size_t len);
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				ft_lstadd(t_list **l, void *mem, size_t size);
-void				ft_lstdel(t_list *l);
+void				ft_lstfree(t_list *l);
 void				ft_memdel(void **ap);
 void				ft_qsort(void **t, size_t n, t_cmp_f cmp, int rev);
 
