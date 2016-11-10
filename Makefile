@@ -19,8 +19,10 @@ CYAN		=	"\033[0;36m"
 WHITE		=	"\033[0;37m"
 END			=	"\033[0m"
 
+FIND		=	find . -maxdepth 1 -printf "%f\n"
+
 SRCEX		=
-SRC			=	$(filter-out $(SRCEX), $(filter %.c, $(shell find . -type f)))
+SRC			=	$(filter-out $(SRCEX), $(filter %.c, $(shell $(FIND) -type f)))
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
 all: $(NAME)
