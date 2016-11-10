@@ -16,6 +16,10 @@ CYAN		=	"\033[0;36m"
 WHITE		=	"\033[0;37m"
 END			=	"\033[0m"
 
+PRINT		=	@printf COL$(PROJECT)$(END)'\t'
+PRPROJ		=	$(subst COL, $(MAGENTA), $(PRINT))
+PRRM		=	$(subst COL, $(CYAN), $(PRINT))
+
 SRCEX		=
 SRC			=	$(filter-out $(SRCEX), $(filter %.c, $(shell ls)))
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
@@ -24,26 +28,26 @@ all: $(NAME)
 
 $(BUILDDIR)/%.o: %.c
 	@[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
-	@printf $(YELLOW)$(PROJECT)$(END)'\t'
+	$(PRPROJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	@printf $(YELLOW)$(PROJECT)$(END)'\t'
+	$(PRPROJ)
 	@ar rc $(@) $(OBJECTS)
 	@echo OK
 
 .PHONY: clean sclean fclean re r
 
 clean:
-	@printf $(YELLOW)$(PROJECT)$(END)'\t'
+	$(PRRM)
 	rm -rf $(BUILDDIR)
 
 sclean:
-	@printf $(YELLOW)$(PROJECT)$(END)'\t'
+	$(PRRM)
 	rm -rf $(OBJECTS)
 
 fclean: clean
-	@printf $(YELLOW)$(PROJECT)$(END)'\t'
+	$(PRRM)
 	rm -rf $(NAME)
 
 r: sclean all
