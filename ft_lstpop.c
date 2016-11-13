@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 17:58:44 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/10 18:01:14 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/10 19:44:30 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ t_list		*ft_lstpop(t_list **l)
 	if (!*l)
 		return (NULL);
 	ret = *l;
-	*l = (*l)->next;
+	*l = ret->next;
 	return (ret);
 }

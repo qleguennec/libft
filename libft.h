@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/11 00:29:19 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/13 17:04:30 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # define BZERO(x)		ft_bzero(&x, sizeof(x))
 
 # define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
+# define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
+# define VSPLIT(v, x)	ft_nsplit(v.data, v.used, x, sizeof(x) - 1)
+
+# define WHITESPACE		" \t\n\v\f\r"
 
 typedef struct		s_list
 {
@@ -36,7 +40,6 @@ typedef struct		s_list
 
 typedef int			(*t_cmp_f) (void *, void *);
 
-char				**ft_nsplit(char *s, size_t n, int (*f)(int));
 char				*ft_itoa(int n);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strchr(const char *s, int c);
@@ -71,6 +74,7 @@ size_t				ft_strlcat(char *dest, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
 size_t				ft_wstrlen(const wchar_t *s);
 t_list				*ft_lstpop(t_list **l);
+unsigned char		**ft_nsplit(void *s, size_t n1, void *match, size_t n2);
 unsigned long		ft_pow(unsigned long a, unsigned long n);
 void				*ft_find(char *str, void *fst, void *lst, size_t size);
 void				*ft_memalloc(size_t size);
