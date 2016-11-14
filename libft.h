@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/13 17:04:30 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/14 17:03:41 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
 # define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
 # define VSPLIT(v, x)	ft_nsplit(v.data, v.used, x, sizeof(x) - 1)
+# define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
 
 # define WHITESPACE		" \t\n\v\f\r"
 
@@ -65,6 +66,7 @@ int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_isupper(int c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					ft_only(void *p1, size_t n1, void *p2, size_t n2);
 int					ft_strcmp(char const *s1, char const *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_tolower(int i);
