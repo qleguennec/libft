@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/14 17:06:02 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/14 17:13:15 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
 # define VSPLIT(v, x)	ft_nsplit(v.data, v.used, x, sizeof(x) - 1)
 # define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
+# define VONLY(v, x)	ft_only(v.data, v.used, x, sizeof(x) - 1)
 
 # define WHITESPACE		" \t\n\v\f\r"
 # define DIGIT			"0123456789"
