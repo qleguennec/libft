@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/14 17:03:41 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/14 17:04:39 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
 
 # define WHITESPACE		" \t\n\v\f\r"
+# define DIGIT			"0123456789"
 
 typedef struct		s_list
 {
