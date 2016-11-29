@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 10:00:20 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/28 19:26:38 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/29 00:28:59 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,13 @@ static void	memcpy_carry(unsigned char *d, unsigned char *s, size_t n)
 		*d++ = *s++;
 }
 
-static void	memcpy_aligned(unsigned char *d, unsigned char *s, size_t n)
+void		*ft_memcpy(void *dest, const void *src, size_t n)
 {
+	unsigned char		*d;
+	unsigned char		*s;
+
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	while (n >= 16)
 	{
 		*(unsigned int *)(d + 0) = *(unsigned int *)(s + 0);
@@ -50,29 +55,5 @@ static void	memcpy_aligned(unsigned char *d, unsigned char *s, size_t n)
 		n -= 16;
 	}
 	memcpy_carry(d, s, n);
-}
-
-void		*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char		*d;
-	unsigned char		*s;
-
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	while ((uintptr_t)s % 4 && n)
-	{
-		*d++ = *s++;
-		n--;
-	}
-	if (!((uintptr_t)d % 4))
-	{
-		memcpy_aligned(d, s, n);
-		return (dest);
-	}
-	while (n)
-	{
-		*d++ = *s++;
-		n--;
-	}
 	return (dest);
 }
