@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 10:00:20 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/29 00:56:30 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/29 01:31:51 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ static void	memcpy_carry(unsigned char *d, unsigned char *s, size_t n)
 	}
 	if (n & 8)
 	{
-		*(unsigned long *)(d + 0) = *(unsigned long *)(s + 0);
+		*(unsigned long *)d = *(unsigned long *)s;
 		INC(8);
 	}
 	if (n & 4)
 	{
-		*(unsigned int *)(d + 0) = *(unsigned int *)(s + 0);
+		*(unsigned int *)d = *(unsigned int *)s;
 		INC(4);
 	}
 	if (n & 2)
 	{
-		*d++ = *s++;
-		*d++ = *s++;
+		*(unsigned short *)d = *(unsigned short *)s;
+		INC(2);
 	}
 	if (n & 1)
-		*d++ = *s++;
+		*d = *s;
 }
 
 void		*ft_memcpy(void *dest, const void *src, size_t n)
@@ -49,7 +49,7 @@ void		*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	while (n && (uintptr_t)d % 4)
+	while (n && (uintptr_t)d % 8)
 	{
 		*d++ = *s++;
 		n--;
@@ -63,7 +63,6 @@ void		*ft_memcpy(void *dest, const void *src, size_t n)
 		INC(32);
 		n -= 32;
 	}
-	if (n)
-		memcpy_carry(d, s, n);
+	memcpy_carry(d, s, n);
 	return (dest);
 }
