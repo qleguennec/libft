@@ -6,27 +6,32 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 10:00:20 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/29 00:28:59 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/11/29 00:56:30 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdint.h>
 
+#define INC(x)	d += x; s += x;
+
 static void	memcpy_carry(unsigned char *d, unsigned char *s, size_t n)
 {
+	if (n & 16)
+	{
+		*(unsigned long *)(d + 0) = *(unsigned long *)(s + 0);
+		*(unsigned long *)(d + 8) = *(unsigned long *)(s + 8);
+		INC(16);
+	}
 	if (n & 8)
 	{
-		*(unsigned int *)(d + 0) = *(unsigned int *)(s + 0);
-		*(unsigned int *)(d + 4) = *(unsigned int *)(s + 4);
-		d += 8;
-		s += 8;
+		*(unsigned long *)(d + 0) = *(unsigned long *)(s + 0);
+		INC(8);
 	}
 	if (n & 4)
 	{
 		*(unsigned int *)(d + 0) = *(unsigned int *)(s + 0);
-		d += 4;
-		s += 4;
+		INC(4);
 	}
 	if (n & 2)
 	{
@@ -44,16 +49,21 @@ void		*ft_memcpy(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
-	while (n >= 16)
+	while (n && (uintptr_t)d % 4)
 	{
-		*(unsigned int *)(d + 0) = *(unsigned int *)(s + 0);
-		*(unsigned int *)(d + 4) = *(unsigned int *)(s + 4);
-		*(unsigned int *)(d + 8) = *(unsigned int *)(s + 8);
-		*(unsigned int *)(d + 12) = *(unsigned int *)(s + 12);
-		s += 16;
-		d += 16;
-		n -= 16;
+		*d++ = *s++;
+		n--;
 	}
-	memcpy_carry(d, s, n);
+	while (n >= 32)
+	{
+		*(unsigned long *)(d + 0) = *(unsigned long *)(s + 0);
+		*(unsigned long *)(d + 8) = *(unsigned long *)(s + 8);
+		*(unsigned long *)(d + 16) = *(unsigned long *)(s + 16);
+		*(unsigned long *)(d + 24) = *(unsigned long *)(s + 24);
+		INC(32);
+		n -= 32;
+	}
+	if (n)
+		memcpy_carry(d, s, n);
 	return (dest);
 }
