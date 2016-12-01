@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memnchr.c                                       :+:      :+:    :+:   */
+/*   ft_word.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:45:27 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/06/21 16:37:49 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/11/28 19:32:03 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/11/28 19:32:32 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memnchr(const void *s, int c, size_t n)
+unsigned char	*ft_word(void **p, size_t *n1, void *match, size_t n2)
 {
-	unsigned char	*p;
-	size_t			i;
+	unsigned char	*r;
+	unsigned char	**s;
 
-	p = (unsigned char *)s;
-	c = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	s = (unsigned char **)p;
+	while (*n1 && ft_memchr(match, (int)**s, n2))
 	{
-		if (p[i] != c)
-			return (p + i);
-		i++;
+		(*n1)--;
+		(*s)++;
 	}
-	return (NULL);
+	r = *s;
+	while (*n1 && !ft_memchr(match, (int)**s, n2))
+	{
+		(*n1)--;
+		(*s)++;
+	}
+	return (r == *s ? NULL : r);
 }
