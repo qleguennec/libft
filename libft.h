@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/26 13:23:32 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/26 14:32:19 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@
 
 #define STREND(s)		ft_memchr(s, '\0', -1)
 
+#define STRTOB2(s)		ft_atoi(s, sizeof(s) - 1, 2, 0)
+#define STRTOB3(s)		ft_atoi(s, sizeof(s) - 1, 3, 0)
+#define STRTOB10(s)		ft_atoi(s, sizeof(s) - 1, 10, 0)
+#define STRTOB16LC(s)	ft_atoi(s, sizeof(s) - 1, 16, 0)
+#define STRTOB16UC(s)	ft_atoi(s, sizeof(s) - 1, 16, 1)
+
 # include "types.h"
 
 char			*ft_strchr(const char *s, int c);
@@ -45,7 +51,6 @@ char			*ft_strncpy(char *dest, const char *src, size_t n);
 char			*ft_strnew(size_t size);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strstr(const char *s1, const char *s2);
-int				ft_atoi(const char *s);
 int				ft_bytecmp(const void *p, unsigned char c, size_t n);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
@@ -66,6 +71,7 @@ size_t			ft_wstrlen(const wchar_t *s);
 t_list			*ft_lstpop(t_list **l);
 unsigned char	**ft_nsplit(void *s, size_t n1, void *match, size_t n2);
 unsigned char	*ft_word(void **p, size_t *n1, void *match, size_t n2);
+unsigned long	ft_atoi(char *s, size_t size, int base, int ucase);
 unsigned long	ft_pow(unsigned long a, unsigned long n);
 void			*ft_find(char *str, void *fst, void *lst, size_t size);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
