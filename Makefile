@@ -42,14 +42,8 @@ clean:
 	$(PRRM)
 	rm -rf $(BUILDDIR)
 
-sclean:
-	$(PRRM)
-	rm -rf $(OBJECTS)
-
 fclean: clean
 	$(PRRM)
 	rm -rf $(NAME)
-
-r: sclean all
 
 re: fclean all

@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 14:48:09 by qle-guen          #+#    #+#             */
-/*   Updated: 2015/12/10 10:00:37 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
+/*   Updated: 2016/12/26 13:22:37 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef TYPES_H
+# define TYPES_H
 
-char		*ft_itoa(int n)
+typedef struct		s_list
 {
-	char	s[12];
-	int		i;
-	int		neg;
-	int		min;
+	void				*mem;
+	size_t				size;
+	struct s_list		*next;
+}						t_list;
 
-	i = 0;
-	neg = (n < 0);
-	min = (n == -2147483648);
-	if (!n)
-		s[i++] = '0';
-	if (min)
-		n++;
-	if (neg)
-		n = -1 * n;
-	while (n != 0)
-	{
-		s[i++] = (n % 10) + 48;
-		n /= 10;
-	}
-	if (min)
-		*s = '8';
-	if (neg)
-		s[i++] = '-';
-	s[i] = '\0';
-	return (ft_strrev(s));
-}
+typedef int				(*t_cmp_f) (void *, void *);
+typedef char			t_i8;
+typedef unsigned char	t_u8;
+typedef int				t_i32;
+typedef unsigned int	t_u32;
+typedef long			t_i64;
+typedef unsigned long	t_u64;
+
+#endif
