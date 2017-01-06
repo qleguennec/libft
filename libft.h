@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/26 16:56:44 by qle-guen         ###   ########.fr       */
+/*   Updated: 2016/12/30 19:13:32 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <wchar.h>
 
 # define COMPARE(a, b)	(((a) > (b)) - ((a) < (b)))
-# define MIN(a,b)		((a <= b) ? a : b)
-# define MAX(a,b)		((a >= b) ? a : b)
-# define LEN(x)			(sizeof(x) / sizeof(x[0]))
-# define NEG(x)			((x < 0) ? 1 : 0)
-# define SIGN(x)		((x < 0) ? - 1 : 1)
-# define ABS(x)			((x < 0) ? - x : x)
-# define BZERO(x)		ft_bzero(&x, sizeof(x))
+# define MIN(a,b)	((a <= b) ? a : b)
+# define MAX(a,b)	((a >= b) ? a : b)
+# define LEN(x)		(sizeof(x) / sizeof(x[0]))
+# define NEG(x)		((x < 0) ? 1 : 0)
+# define SIGN(x)	((x < 0) ? - 1 : 1)
+# define ABS(x)		((x < 0) ? - x : x)
+# define BZERO(x)	ft_bzero(&x, sizeof(x))
 
 # define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
 # define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
@@ -31,14 +31,14 @@
 # define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
 # define VONLY(v, x)	ft_only(v.data, v.used, x, sizeof(x) - 1)
 
-# define WHITESPACE		" \t\n\v\f\r"
-# define DIGIT			"0123456789"
+# define WHITESPACE	" \t\n\v\f\r"
+# define DIGIT		"0123456789"
 
-#define STREND(s)		ft_memchr(s, '\0', -1)
+# define STREND(s)	ft_memchr(s, '\0', -1)
 
-#define STRTOB2(s, x)	ft_atoi(s, (unsigned  long *)&x, 2, 0)
-#define STRTOB3(s, x)	ft_atoi(s, (unsigned long *)&x, 3, 0)
-#define STRTOB10(s, x)	ft_atoi(s, (unsigned long *)&x, 10, 0)
+# define STRTOB2(s, x)	ft_atoi(s, (unsigned  long *)&x, 2, 0)
+# define STRTOB3(s, x)	ft_atoi(s, (unsigned long *)&x, 3, 0)
+# define STRTOB10(s, x)	ft_atoi(s, (unsigned long *)&x, 10, 0)
 
 # include "types.h"
 
