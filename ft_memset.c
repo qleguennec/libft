@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 08:39:56 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/29 01:30:48 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/09 16:08:23 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		*ft_memset(void *p, int c, size_t n)
 {
 	unsigned long	c64;
 	unsigned char	*s;
-
 
 	s = p;
 	while (n && (uintptr_t)s % 8)
