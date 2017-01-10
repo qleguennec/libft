@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/10 13:56:44 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/10 17:08:00 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef unsigned long	t_u64;
 typedef long			t_i64;
 
 # ifdef T_U32_V2
+#  define T_U32_V2_ECHO
 #  define T_V2
 
 typedef struct			s_u32_v2
@@ -39,6 +40,7 @@ typedef struct			s_u32_v2
 # endif
 
 # ifdef T_U32_V4
+#  define T_U32_V4_ECHO
 #  define T_V4
 
 typedef struct			s_u32_v4
@@ -53,12 +55,16 @@ typedef struct			s_u32_v4
 #  define V4U(x) ((x).b)
 #  define V4R(x) ((x).c)
 #  define V4D(x) ((x).d)
+
 # endif
 
 # ifdef T_V2
 
 #  define V2(t, a, b) ((t##_v2){a, b})
 #  define SUM2(t, a, b) V2(t, (a).x+(b).x, (a).y+(b).y)
+#  define DIFF2(t, a, b) V2(t, (a).x-(b).x, (a).y-(b).y)
+#  define EQ2(a, b) ((a).x == (b).x && (a).y == (b).y)
+#  define ABS2(t, a) (V2(t, ABS((a).x), ABS((a).y)))
 #  define DOT2(t, a, b) V2(t, (a).x*(b).x, (a).y*(b).y)
 # endif
 
@@ -66,6 +72,7 @@ typedef struct			s_u32_v4
 
 #  define V4(t, a, b, c, d) ((t##_v4){a, b, c, d})
 #  define SUM4(t, x, y) V4(t,(x).a+(y).a,(x).b+(y).b,(x).c+(y).c,(x).d+(y).d)
+#  define DIFF4(t, x, y) V4(t,(x).a-(y).a,(x).b-(y).b,(x).c-(y).c,(x).d-(y).d)
 #  define DOT4(t, x, y) V4(t,(x).a*(y).a,(x).b*(y).b,(x).c*(y).c,(x).d*(y).d)
 # endif
 
