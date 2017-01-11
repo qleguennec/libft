@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/11 16:39:33 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/11 18:10:42 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,22 @@ typedef struct			s_u32_v4
 
 # ifdef T_V2
 
-#  define V2(t, a, b) ((t##_v2){a, b})
-#  define SUM2(t, a, b) V2(t, (a).x+(b).x, (a).y+(b).y)
-#  define DIFF2(t, a, b) V2(t, (a).x-(b).x, (a).y-(b).y)
-#  define EQ2(a, b) ((a).x == (b).x && (a).y == (b).y)
 #  define ABS2(t, a) (V2(t, ABS((a).x), ABS((a).y)))
+#  define CPY2(t, a) V2(t, (a).x, (a).y)
+#  define DIFF2(t, a, b) V2(t, (a).x-(b).x, (a).y-(b).y)
 #  define DOT2(t, a, b) V2(t, (a).x*(b).x, (a).y*(b).y)
+#  define EQ2(a, b) ((a).x == (b).x && (a).y == (b).y)
+#  define SUM2(t, a, b) V2(t, (a).x+(b).x, (a).y+(b).y)
+#  define V2(t, a, b) ((t##_v2){a, b})
 # endif
 
 # ifdef T_V4
 
-#  define V4(t, a, b, c, d) ((t##_v4){a, b, c, d})
-#  define SUM4(t, x, y) V4(t,(x).a+(y).a,(x).b+(y).b,(x).c+(y).c,(x).d+(y).d)
+#  define CPY4(t, x) V4(t, (x).a, (x).b, (x).c, (x).d)
 #  define DIFF4(t, x, y) V4(t,(x).a-(y).a,(x).b-(y).b,(x).c-(y).c,(x).d-(y).d)
 #  define DOT4(t, x, y) V4(t,(x).a*(y).a,(x).b*(y).b,(x).c*(y).c,(x).d*(y).d)
+#  define SUM4(t, x, y) V4(t,(x).a+(y).a,(x).b+(y).b,(x).c+(y).c,(x).d+(y).d)
+#  define V4(t, a, b, c, d) ((t##_v4){a, b, c, d})
 # endif
 
 #endif
