@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/10 17:08:00 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/11 16:39:33 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@ typedef struct			s_u32_v2
 	t_u32				x;
 	t_u32				y;
 }						t_u32_v2;
+# endif
+
+# ifdef T_U32_V2
+#  define T_U32_V2_ECHO
+#  define T_V2
+
+typedef struct			s_i32_v2
+{
+	t_i32				x;
+	t_i32				y;
+}						t_i32_v2;
 # endif
 
 # ifdef T_U32_V4
