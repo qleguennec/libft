@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/14 15:25:09 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/16 10:51:53 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ typedef struct			s_u32_v4
 #  define V4Y(x) ((x).b)
 #  define V4W(x) ((x).c)
 #  define V4H(x) ((x).d)
+
+# define V4X1(x) (V4X(x))
+# define V4X2(x) (V4X(x) + V4W(x))
+# define V4Y1(x) (V4Y(x))
+# define V4Y2(x) (V4Y(x) + V4H(x))
 
 # endif
 
