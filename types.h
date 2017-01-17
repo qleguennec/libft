@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/16 10:51:53 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/17 17:25:10 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ typedef char			t_i8;
 typedef unsigned int	t_u32;
 typedef int				t_i32;
 typedef unsigned long	t_u64;
+typedef float			t_f32;
+typedef double			t_f64;
+
+# ifdef T_U32_V2
+#  define T_U32_V2_ECHO
+#  define T_V2
+
+typedef struct			s_f32_v2
+{
+	t_f32				x;
+	t_f32				y;
+}						t_f32_v2;
+# endif
+
 typedef long			t_i64;
 
 # ifdef T_U32_V2
@@ -39,8 +53,8 @@ typedef struct			s_u32_v2
 }						t_u32_v2;
 # endif
 
-# ifdef T_U32_V2
-#  define T_U32_V2_ECHO
+# ifdef T_I32_V2
+#  define T_I32_V2_ECHO
 #  define T_V2
 
 typedef struct			s_i32_v2
@@ -91,6 +105,9 @@ typedef struct			s_u32_v4
 #  define NEQ2(a, b) (!EQ2(a, b))
 #  define SUM2(t, a, b) V2(t, (a).x+(b).x, (a).y+(b).y)
 #  define V2(t, a, b) ((t##_v2){a, b})
+#  define DX2(a, b) (a.x > b.x ? a.x - b.x : b.x - a.x)
+#  define DY2(a, b) (a.y > b.y ? a.y - b.y : b.y - a.y)
+#  define DD2(a, b) (V2(t_u32, DX2(a, b), DY2(a, b)))
 # endif
 
 # ifdef T_V4

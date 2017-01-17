@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/14 19:01:10 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/01/17 10:57:49 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@
 # define LEN(x)		(sizeof(x) / sizeof(x[0]))
 # define NEG(x)		((x < 0) ? 1 : 0)
 # define SIGN(x)	((x < 0) ? - 1 : 1)
-# define ABS(x)		((x < 0) ? - x : x)
-# define BZERO(x)	ft_bzero(&x, sizeof(x))
+# define ABS(x)		(((x) < 0) ? (-x) : (x))
 
-# define MEMCPY(a, b)	ft_memcpy(&a, (b), sizeof(a))
+# define BZERO(a)		ft_bzero(&a, sizeof(a))
 # define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
-# define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
-# define VSPLIT(v, x)	ft_nsplit(v.data, v.used, x, sizeof(x) - 1)
+# define MEMCPY(a, b)	ft_memcpy(&a, (b), sizeof(a))
+# define MEMCHR(a, b)	ft_memchr((a), (b), sizeof(a) - 1)
 # define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
+# define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
 # define VONLY(v, x)	ft_only(v.data, v.used, x, sizeof(x) - 1)
+# define VSPLIT(v, x)	ft_nsplit(v.data, v.used, x, sizeof(x) - 1)
 
 # define WHITESPACE	" \t\n\v\f\r"
 # define DIGIT		"0123456789"
