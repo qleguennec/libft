@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/26 13:19:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/17 17:25:10 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/06 10:40:25 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ typedef char			t_i8;
 typedef unsigned int	t_u32;
 typedef int				t_i32;
 typedef unsigned long	t_u64;
+typedef long			t_i64;
 typedef float			t_f32;
 typedef double			t_f64;
 
-# ifdef T_U32_V2
-#  define T_U32_V2_ECHO
+# ifdef T_F32_V2
+#  define T_F32_V2_ECHO
 #  define T_V2
 
 typedef struct			s_f32_v2
@@ -40,7 +41,16 @@ typedef struct			s_f32_v2
 }						t_f32_v2;
 # endif
 
-typedef long			t_i64;
+# ifdef T_F64_V2
+#  define T_F64_V2_ECHO
+#  define T_V2
+
+typedef struct			s_f64_v2
+{
+	t_f32				x;
+	t_f32				y;
+}						t_f64_v2;
+# endif
 
 # ifdef T_U32_V2
 #  define T_U32_V2_ECHO
@@ -86,10 +96,10 @@ typedef struct			s_u32_v4
 #  define V4W(x) ((x).c)
 #  define V4H(x) ((x).d)
 
-# define V4X1(x) (V4X(x))
-# define V4X2(x) (V4X(x) + V4W(x))
-# define V4Y1(x) (V4Y(x))
-# define V4Y2(x) (V4Y(x) + V4H(x))
+#  define V4X1(x) (V4X(x))
+#  define V4X2(x) (V4X(x) + V4W(x))
+#  define V4Y1(x) (V4Y(x))
+#  define V4Y2(x) (V4Y(x) + V4H(x))
 
 # endif
 
