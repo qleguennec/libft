@@ -2,8 +2,8 @@ NAME = libft.a
 SRC = $(filter %.c, $(shell ls))
 OBJ = $(SRC:.c=.o)
 
-CFLAGS += -g -std=c99 -pedantic -Wall -Wextra -Werror
-ARFLAGS +=
+CFLAGS += -g -Wall -Wextra -Werror
+ARFLAGS = rc
 
 all: $(NAME)
 
