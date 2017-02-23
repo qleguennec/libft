@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/01/28 15:15:38 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/23 19:36:02 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # define ABS(x)		(((x) < 0) ? (-x) : (x))
 
 # define BZERO(a)		ft_bzero(&a, sizeof(a))
-# define FIND(s, a)		ft_find(s, a, &(a[LEN(a) - 1]), sizeof(*a))
 # define MEMCPY(a, b)	ft_memcpy(&a, (b), sizeof(a))
 # define MEMCHR(a, b)	ft_memchr((a), (b), sizeof(a) - 1)
 # define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
@@ -69,18 +68,15 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_tolower(int i);
 int				ft_toupper(int i);
 size_t			ft_strlen(const char *s);
-size_t			ft_wstrlen(const wchar_t *s);
 t_list			*ft_lstpop(t_list **l);
 unsigned char	**ft_nsplit(void *s, size_t n1, void *match, size_t n2);
 unsigned char	*ft_word(void **p, size_t *n1, void *match, size_t n2);
 unsigned long	ft_pow(unsigned long a, unsigned long n);
-void			*ft_find(char *str, void *fst, void *lst, size_t size);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memdup(void *p, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
-void			*ft_mempcpy(void *dest, const void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_arr_free(void **a);
 void			ft_bzero(void *s, size_t n);
