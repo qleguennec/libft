@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_iqsort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 17:31:55 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/12/26 13:24:42 by qle-guen         ###   ########.fr       */
+/*   Created: 2016/10/07 17:43:06 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/28 23:06:34 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "malloc.h"
 
-void		ft_lstadd(t_list **l, void *mem, size_t size)
+void	ft_iqsort
+	(int *t, size_t n, bool rev)
 {
-	t_list	*new;
+	size_t	i;
+	size_t	j;
+	int		p;
+	int		tmp;
 
-	MALLOC1_ZERO(new);
-	new->next = *l;
-	new->size = size;
-	new->mem = mem;
-	*l = new;
+	if (n < 2)
+		return ;
+	p = t[n / 2];
+	i = 0;
+	j = n - 1;
+	while (42)
+	{
+		while (rev ? p > t[i] : t[i] < p)
+			i++;
+		while (rev ? p < t[j] : t[j] > p)
+			j--;
+		if (i >= j)
+			break ;
+		tmp = t[i];
+		t[i] = t[j];
+		t[j--] = tmp;
+		i++;
+	}
+	ft_iqsort(t, i, rev);
+	ft_iqsort(t + i, n - i, rev);
 }
