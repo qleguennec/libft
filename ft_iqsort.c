@@ -6,14 +6,14 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/07 17:43:06 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/28 23:06:34 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/05/28 21:11:55 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	ft_iqsort
-	(int *t, size_t n, bool rev)
+	(int *t, size_t n, int rev)
 {
 	size_t	i;
 	size_t	j;

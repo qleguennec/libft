@@ -6,40 +6,14 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/25 18:28:07 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/03/31 14:20:40 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/05/28 21:11:30 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdbool.h>
 # include <string.h>
-
-# define COMPARE(a, b)	(((a) > (b)) - ((a) < (b)))
-# define MIN(a,b)	((a <= b) ? a : b)
-# define MAX(a,b)	((a >= b) ? a : b)
-# define LEN(x)		(sizeof(x) / sizeof(x[0]))
-# define NEG(x)		((x < 0) ? 1 : 0)
-# define SIGN(x)	((x < 0) ? - 1 : 1)
-# define ABS(x)		(((x) < 0) ? (-x) : (x))
-
-# define BZERO(a)		ft_bzero(&a, sizeof(a))
-# define MEMCPY(a, b)	ft_memcpy(&a, (b), sizeof(a))
-# define MEMCHR(a, b)	ft_memchr((a), (b), sizeof(a) - 1)
-# define STRONLY(s, x)	ft_only(s, ft_strlen(s), x, sizeof(x) - 1)
-# define STRSPLIT(s, x)	ft_nsplit(s, ft_strlen(s), x, sizeof(x) - 1)
-# define VONLY(v, x)	ft_only(v.data, v.used, x, sizeof(x) - 1)
-# define VSPLIT(v, x)	ft_nsplit(v.data, v.used, x, sizeof(x) - 1)
-
-# define WHITESPACE	" \t\n\v\f\r"
-# define DIGIT		"0123456789"
-
-# define STREND(s)	ft_memchr(s, '\0', -1)
-
-# define STRTOB2(s, x)	ft_atoi(s, (unsigned  long *)&x, 2, 0)
-# define STRTOB3(s, x)	ft_atoi(s, (unsigned long *)&x, 3, 0)
-# define STRTOB10(s, x)	ft_atoi(s, (unsigned long *)&x, 10, 0)
 
 typedef struct		s_list
 {
@@ -81,7 +55,8 @@ void				*ft_memdup(void *p, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
-void				ft_iqsort(int *t, size_t n, bool rev);
+void				ft_iqsort(int *t, size_t n, int rev);
 void				ft_qsort(void **t, size_t n, t_cmp_f cmp, int rev);
+int					ft_min(int a, int b);
 
 #endif
