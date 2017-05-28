@@ -6,18 +6,19 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 11:05:17 by qle-guen          #+#    #+#             */
-/*   Updated: 2016/11/09 19:14:10 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/05/28 21:28:33 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "malloc.h"
 
 void		*ft_memdup(void *p, size_t n)
 {
 	void	*ret;
 
-	MALLOC(ret, n);
+	ret = malloc(n);
+	if (ret == NULL)
+		return (NULL);
 	ft_memcpy(ret, p, n);
 	return (ret);
 }
